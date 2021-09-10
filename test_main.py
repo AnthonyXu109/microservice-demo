@@ -12,6 +12,7 @@ def test_add():
   assert 1 == 1
 
 def test_minus():
+  print(minus(456, 123))
   assert minus(456, 123) == 333
 
 def test_multi():
