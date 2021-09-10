@@ -12,7 +12,11 @@ def test_add():
   assert 1 == 1
 
 def test_minus():
-  assert asyncio.ensure_future(minus(456, 123)).result() == 333
+  loop = asyncio.get_event_loop()
+  task = loop.create_task(minus(456, 123))
+  loop.run_until_complete(task)
+  loop.close()
+  assert task.result() == 333
 
 def test_multi():
   assert multi(4, 4) == 16
