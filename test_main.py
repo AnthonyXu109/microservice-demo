@@ -1,3 +1,4 @@
+import asyncio
 from main import add
 from main import minus
 from main import multi
@@ -8,12 +9,10 @@ from main import mod
 from main import fac
 
 def test_add():
-#   assert add(123, 456) == 579
   assert 1 == 1
 
 def test_minus():
-  print(minus(456, 123))
-  assert minus(456, 123) == 333
+  assert asyncio.ensure_future(minus(456, 123)).result() == 333
 
 def test_multi():
   assert multi(4, 4) == 16
