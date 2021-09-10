@@ -9,29 +9,57 @@ from main import mod
 from main import fac
 
 def test_add():
-  assert 1 == 1
+  loop = asyncio.get_event_loop()
+  task = loop.create_task(add(123, 456))
+  loop.run_until_complete(task)
+  loop.close()
+  assert task.result() == {"summation": 579}
 
 def test_minus():
   loop = asyncio.get_event_loop()
   task = loop.create_task(minus(456, 123))
   loop.run_until_complete(task)
   loop.close()
-  assert task.result() == 333
+  assert task.result() == {"subtraction": 333}
 
 def test_multi():
-  assert multi(4, 4) == 16
+  loop = asyncio.get_event_loop()
+  task = loop.create_task(multi(4, 4))
+  loop.run_until_complete(task)
+  loop.close()
+  assert task.result() == {"multiplication": 16}
 
 def test_div():
-  assert div(27, 9) == 3
+  loop = asyncio.get_event_loop()
+  task = loop.create_task(div(24, 4))
+  loop.run_until_complete(task)
+  loop.close()
+  assert task.result() == {"division": 6}
 
 def test_power():
-  assert power(2, 3) == 8
+  loop = asyncio.get_event_loop()
+  task = loop.create_task(power(2, 3))
+  loop.run_until_complete(task)
+  loop.close()
+  assert task.result() == {"power": 8}
 
 def test_sqrt():
-  assert sqrt(64) == 8
+  loop = asyncio.get_event_loop()
+  task = loop.create_task(sqrt(36))
+  loop.run_until_complete(task)
+  loop.close()
+  assert task.result() == {"square root": 6}
 
 def test_mod():
-  assert mod(12, 6) == 0
+  loop = asyncio.get_event_loop()
+  task = loop.create_task(mod(12, 6))
+  loop.run_until_complete(task)
+  loop.close()
+  assert task.result() == {"modulo": 0}
 
 def test_fac():
-  assert fac(12) == '2 2 3'
+  loop = asyncio.get_event_loop()
+  task = loop.create_task(fac(12))
+  loop.run_until_complete(task)
+  loop.close()
+  assert task.result() == {"factorization": '2 2 3'}
