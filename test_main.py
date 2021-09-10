@@ -15,26 +15,31 @@ def test_add():
   assert task.result() == {"summation": 579}
 
 def test_minus():
+  loop = asyncio.get_event_loop()
   task1 = loop.create_task(minus(456, 123))
   loop.run_until_complete(task1)
   assert task1.result() == {"subtraction": 333}
 
 def test_multi():
+  loop = asyncio.get_event_loop()
   task2 = loop.create_task(multi(4, 4))
   loop.run_until_complete(task2)
   assert task2.result() == {"multiplication": 16}
 
 def test_div():
+  loop = asyncio.get_event_loop()
   task3 = loop.create_task(div(24, 4))
   loop.run_until_complete(task3)
   assert task3.result() == {"division": 6}
 
 def test_power():
+  loop = asyncio.get_event_loop()
   task4 = loop.create_task(power(2, 3))
   loop.run_until_complete(task4)
   assert task4.result() == {"power": 8}
 
 def test_sqrt():
+  loop = asyncio.get_event_loop()
   task5 = loop.create_task(sqrt(36))
   loop.run_until_complete(task5)
   assert task5.result() == {"square root": 6}
