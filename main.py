@@ -23,7 +23,7 @@ async def minus(num1: int, num2: int):
     return {"subtraction": total}
 
 @app.get("/multi/{num1}/{num2}")
-def multi(num1: int, num2: int):
+async def multi(num1: int, num2: int):
     """multiplication"""
 
     total = num1 * num2
